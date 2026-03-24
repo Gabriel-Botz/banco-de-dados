@@ -4,7 +4,7 @@
 CREATE TABLE biblioteca.livro(
 	id_livro SERIAL PRIMARY KEY,
 	titulo varchar (40) NOT NULL,
-	auto varchar (40) NOT NULL,
+	autor varchar (40) NOT NULL,
 	ano_publicacao int NOT NULL,
 	genero varchar(20) NOT NULL,
 	quantidade_estoque int NOT NULL
@@ -25,7 +25,7 @@ CREATE TABLE biblioteca.emprestimo(
 	id_emprestimo SERIAL PRIMARY KEY,
 	id_usuario int REFERENCES biblioteca.usuario(id_usuario),
 	id_livro int REFERENCES biblioteca.livro(id_livro),
-	data_emprestimo DATE UNIQUE,
+	data_emprestimo DATE NOT NULL,
 	data_devolucao DATE,
 	status status_pedido			
 );
